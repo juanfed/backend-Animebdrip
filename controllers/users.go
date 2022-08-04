@@ -3,6 +3,7 @@ package controllers
 import (
 	"database/sql"
 	"net/http"
+	"strconv"
 	"v1/repositories"
 	"v1/service"
 
@@ -22,7 +23,13 @@ func UserMysqlController(mysql *sql.DB) *usercController {
 }
 
 func (ctr *usercController) Get(c echo.Context) error {
-	value, err := ctr.service.Get()
+	str := c.Param("id")
+	id, err := strconv.Atoi(str)
+	if err != nil {
+		return err
+	}
+
+	value, err := ctr.service.Get(id)
 	if err != nil {
 		return err
 	}

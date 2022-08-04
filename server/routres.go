@@ -9,5 +9,5 @@ func Routes() {
 	mysql := dals.OpenConectionMysql()
 	userController := controllers.UserMysqlController(mysql)
 
-	e.GET("/movies", userController.Get)
+	e.GET("/movies/:id", userController.Get)
 }

@@ -15,6 +15,6 @@ func UserMysqlService(mysql *repositories.UserRepositories) *UserService {
 	}
 }
 
-func (s *UserService) Get() (models.Movie, error) {
-	return s.mysql.Get()
+func (s *UserService) Get(id int) (models.Movie, error) {
+	return s.mysql.Get(id)
 }
