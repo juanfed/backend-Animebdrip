@@ -1,8 +1,8 @@
-package service
+package users
 
 import (
 	"v1/models"
-	"v1/repositories"
+	"v1/repositories/users"
 )
 
 type UserService struct {

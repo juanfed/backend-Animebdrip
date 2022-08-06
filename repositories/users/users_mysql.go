@@ -40,7 +40,7 @@ func (sq *UserRepositories) Get(id int) (models.Movie, error) {
 			fmt.Println(err)
 			return models.Movie{}, err
 		}
-		err = value.Scan(&movie.Id, &movie.Name, &movie.Gender, &movie.Studio, &movie.Directtor, &movie.Departure_date, &movie.Sequels, &movie.Duracion)
+		err = value.Scan(&movie.Id, &movie.Name, &movie.Gender, &movie.Studio, &movie.Director, &movie.DepartureDate, &movie.Sequels, &movie.Duration)
 		if err != nil {
 			return models.Movie{}, err
 		}

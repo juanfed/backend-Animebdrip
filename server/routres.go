@@ -1,17 +1,19 @@
 package server
 
 import (
-	"v1/controllers"
+	"v1/controllers/admins"
+	"v1/controllers/users"
 	"v1/dals"
 )
 
 func Routes() {
 	mysql := dals.OpenConectionMysql()
-	userController := controllers.UserMysqlController(mysql)
+	userController := users.UserMysqlController(mysql)
+	adminController := admins.AdminMysqlController(mysql)
 
-	adminController
-
+	// routers for users
 	e.GET("/movies/:id", userController.Get)
 
-	e.SET("admin/movies", adminController.Set)
+	// routes for admins
+	e.POST("admin/movies", adminController.Set)
 }
