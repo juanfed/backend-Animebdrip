@@ -6,10 +6,10 @@ import (
 )
 
 type UserService struct {
-	mysql *repositories.UserRepositories
+	mysql *repositories.UserMovieRepositories
 }
 
-func UserMysqlService(mysql *repositories.UserRepositories) *UserService {
+func UserMysqlService(mysql *repositories.UserMovieRepositories) *UserService {
 	return &UserService{
 		mysql: mysql,
 	}

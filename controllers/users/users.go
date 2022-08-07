@@ -17,7 +17,7 @@ type userController struct {
 func UserMysqlController(mysql *sql.DB) *userController {
 	return &userController{
 		service: users.UserMysqlService(
-			repositories.UserMysqlRepositories(mysql),
+			repositories.UserMovieMysqlRepositories(mysql),
 		),
 	}
 }

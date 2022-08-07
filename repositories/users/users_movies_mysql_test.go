@@ -29,7 +29,7 @@ func TestUserRepositories_Get(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			sq := &UserRepositories{
+			sq := &UserMovieRepositories{
 				database: tt.fields.database,
 			}
 			got, err := sq.Get(tt.args.id)

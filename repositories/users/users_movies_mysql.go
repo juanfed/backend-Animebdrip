@@ -3,25 +3,24 @@ package repositories
 import (
 	"database/sql"
 	"fmt"
-	"v1/dals"
 	"v1/models"
 
 	// para la conexion con el driver de mysql
 	_ "github.com/go-sql-driver/mysql"
 )
 
-type UserRepositories struct {
+type UserMovieRepositories struct {
 	database *sql.DB
 }
 
-func UserMysqlRepositories(mysql *sql.DB) *UserRepositories {
-	return &UserRepositories{
-		database: dals.OpenConectionMysql(),
+func UserMovieMysqlRepositories(mysql *sql.DB) *UserMovieRepositories {
+	return &UserMovieRepositories{
+		database: mysql,
 	}
 }
 
 // CRUD
-func (sq *UserRepositories) Get(id int) (models.Movie, error) {
+func (sq *UserMovieRepositories) Get(id int) (models.Movie, error) {
 	fmt.Println("Into get for consult mysql")
 	value, err := sq.database.Query(
 		fmt.Sprintf(
