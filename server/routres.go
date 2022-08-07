@@ -7,12 +7,16 @@ import (
 )
 
 func Routes() {
-	mysql := dals.OpenConectionMysql()
+	mysql := dals.OpenConnectionMysql()
 	userController := users.UserMysqlController(mysql)
 	adminController := admins.AdminMysqlController(mysql)
+	userAnimeController := users.UserAnimeMysqlController(mysql)
 
-	// routers for users
+	// routers for users movies
 	e.GET("/movies/:id", userController.Get)
+
+	// routers for users anime's
+	e.GET("animeBDRip/listAnime/another/:name", userAnimeController.GetAnime)
 
 	// routes for admins
 	e.POST("admin/movies", adminController.Set)

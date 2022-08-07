@@ -19,7 +19,7 @@ func ConnectMysql() string {
 	return database
 }
 
-func OpenConectionMysql() *sql.DB {
+func OpenConnectionMysql() *sql.DB {
 	db, err := sql.Open(constants.DBType, ConnectMysql())
 	if err != nil {
 		log.Fatal(err.Error())

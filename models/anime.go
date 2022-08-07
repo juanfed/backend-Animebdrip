@@ -3,7 +3,9 @@ package models
 type Anime struct {
 	Id        int    `json:"id"`
 	Name      string `json:"name"`
+	Seasons   int    `json:"seasons"`
 	Chapters  int    `json:"chapters"`
+	Specials  string `json:"specials"`
 	Movies    int    `json:"movies"`
 	Gender    string `json:"gender"`
 	StartDate string `json:"start_date"`
