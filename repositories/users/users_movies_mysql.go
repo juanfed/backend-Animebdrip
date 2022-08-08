@@ -19,7 +19,6 @@ func UserMovieMysqlRepositories(mysql *sql.DB) *UserMovieRepositories {
 	}
 }
 
-// CRUD
 func (sq *UserMovieRepositories) Get(id int) (models.Movie, error) {
 	fmt.Println("Into get for consult mysql")
 	value, err := sq.database.Query(
@@ -32,7 +31,6 @@ func (sq *UserMovieRepositories) Get(id int) (models.Movie, error) {
 		return models.Movie{}, err
 	}
 
-	defer value.Close()
 	movie := models.Movie{}
 	if value.Next() {
 		if err != nil {

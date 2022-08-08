@@ -39,5 +39,4 @@ func (sq *UserAnimeRepositories) GetAnime(name string) (models.Anime, error) {
 	}
 
 	return anime, err
-
 }
