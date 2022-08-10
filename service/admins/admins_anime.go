@@ -15,6 +15,6 @@ func AdminAnimeMysqlService(mysql *repositories.AdminAnimeRepositories) *AdminAn
 	}
 }
 
-func (s *AdminAnimeService) SetAnime(anime models.Anime) error {
-	return s.mysql.SetAnime(anime)
+func (s *AdminAnimeService) Set(anime models.Anime) error {
+	return s.mysql.Set(anime)
 }

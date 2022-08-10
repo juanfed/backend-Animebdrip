@@ -16,7 +16,7 @@ func AdminAnimeMysqlRepositories(mysql *sql.DB) *AdminAnimeRepositories {
 	}
 }
 
-func (sq AdminAnimeRepositories) SetAnime(anime models.Anime) error {
+func (sq AdminAnimeRepositories) Set(anime models.Anime) error {
 	_, err := sq.database.Exec(
 		fmt.Sprintf(
 			`insert into animes (name, seasons, chapters, specials, movies, gender, start_date, end_date, state, duration, audio, subtitle, password, manga, sipnosis)

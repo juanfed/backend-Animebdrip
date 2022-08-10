@@ -9,19 +9,19 @@ import (
 	"v1/service/admins"
 )
 
-type adminController struct {
-	service *admins.AdminService
+type adminMovieController struct {
+	service *admins.AdminMovieService
 }
 
-func AdminMysqlController(mysql *sql.DB) *adminController {
-	return &adminController{
-		service: admins.AdminMysqlService(
-			repositories.AdminMysqlRepositories(mysql),
+func MovieAdminMysqlController(mysql *sql.DB) *adminMovieController {
+	return &adminMovieController{
+		service: admins.AdminMovieMysqlService(
+			repositories.AdminMovieMysqlRepositories(mysql),
 		),
 	}
 }
 
-func (ctr *adminController) Set(c echo.Context) error {
+func (ctr *adminMovieController) Set(c echo.Context) error {
 	movie := models.Movie{}
 
 	err := c.Bind(&movie)

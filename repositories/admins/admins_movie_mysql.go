@@ -6,17 +6,17 @@ import (
 	"v1/models"
 )
 
-type AdminRepositories struct {
+type AdminMovieRepositories struct {
 	database *sql.DB
 }
 
-func AdminMysqlRepositories(mysql *sql.DB) *AdminRepositories {
-	return &AdminRepositories{
+func AdminMovieMysqlRepositories(mysql *sql.DB) *AdminMovieRepositories {
+	return &AdminMovieRepositories{
 		database: mysql,
 	}
 }
 
-func (sq *AdminRepositories) Set(movie models.Movie) error {
+func (sq *AdminMovieRepositories) Set(movie models.Movie) error {
 	_, err := sq.database.Exec(
 		fmt.Sprintf(`insert into movies (name, gender, studio, directtor, departure_date, sequels, duration) values ('%s', '%s', '%s', '%s', '%s', '%s', %d)`,
 			movie.Name,
@@ -32,7 +32,7 @@ func (sq *AdminRepositories) Set(movie models.Movie) error {
 	return err
 }
 
-func (sq *AdminRepositories) Update(movie models.Movie) error {
+func (sq *AdminMovieRepositories) Update(movie models.Movie) error {
 	_, err := sq.database.Exec(
 		fmt.Sprintf(
 			`update movies set set name='%s', gender='%s', studio='%s', directtor='%s', departure_date='%s', sequels='%s', duration=%d where id=%d`,
@@ -50,7 +50,7 @@ func (sq *AdminRepositories) Update(movie models.Movie) error {
 	return err
 }
 
-func (sq *AdminRepositories) Delete(id int) error {
+func (sq *AdminMovieRepositories) Delete(id int) error {
 	_, err := sq.database.Exec(
 		fmt.Sprintf(`delete from movies where id=%d`,
 			id,

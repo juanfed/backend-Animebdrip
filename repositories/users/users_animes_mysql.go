@@ -16,7 +16,7 @@ func UserAnimeMysqlRepositories(mysql *sql.DB) *UserAnimeRepositories {
 	}
 }
 
-func (sq *UserAnimeRepositories) GetAnime(name string) (models.Anime, error) {
+func (sq *UserAnimeRepositories) Get(name string) (models.Anime, error) {
 	value, err := sq.database.Query(
 		fmt.Sprintf(
 			`select id, name, seasons, chapters, specials, movies, gender, start_date, end_date, state, duration, audio, subtitle, password, manga, sipnosis from animes where name like "%s"`,

@@ -9,7 +9,7 @@ import (
 func Routes() {
 	mysql := dals.OpenConnectionMysql()
 	userController := users.UserMysqlController(mysql)
-	adminController := admins.AdminMysqlController(mysql)
+	adminController := admins.MovieAdminMysqlController(mysql)
 	adminAnimeController := admins.AdminAnimeMysqlController(mysql)
 	userAnimeController := users.UserAnimeMysqlController(mysql)
 
@@ -23,5 +23,5 @@ func Routes() {
 	e.POST("admin/movies", adminController.Set)
 
 	// routers for admins anime's
-	e.POST("admin/anime", adminAnimeController.SetAnime)
+	e.POST("admin/anime", adminAnimeController.Set)
 }

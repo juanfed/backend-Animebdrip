@@ -21,7 +21,7 @@ func AdminAnimeMysqlController(mysql *sql.DB) *adminAnimeController {
 	}
 }
 
-func (ctr *adminAnimeController) SetAnime(c echo.Context) error {
+func (ctr *adminAnimeController) Set(c echo.Context) error {
 	anime := models.Anime{}
 
 	err := c.Bind(&anime)
@@ -29,5 +29,5 @@ func (ctr *adminAnimeController) SetAnime(c echo.Context) error {
 		return err
 	}
 
-	return c.JSON(http.StatusOK, ctr.service.SetAnime(anime))
+	return c.JSON(http.StatusOK, ctr.service.Set(anime))
 }

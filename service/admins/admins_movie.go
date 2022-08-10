@@ -5,24 +5,24 @@ import (
 	repositories "v1/repositories/admins"
 )
 
-type AdminService struct {
-	mysql *repositories.AdminRepositories
+type AdminMovieService struct {
+	mysql *repositories.AdminMovieRepositories
 }
 
-func AdminMysqlService(mysql *repositories.AdminRepositories) *AdminService {
-	return &AdminService{
+func AdminMovieMysqlService(mysql *repositories.AdminMovieRepositories) *AdminMovieService {
+	return &AdminMovieService{
 		mysql: mysql,
 	}
 }
 
-func (s *AdminService) Set(movie models.Movie) error {
+func (s *AdminMovieService) Set(movie models.Movie) error {
 	return s.mysql.Set(movie)
 }
 
-func (s *AdminService) Update(movie models.Movie) error {
+func (s *AdminMovieService) Update(movie models.Movie) error {
 	return s.mysql.Update(movie)
 }
 
-func (s *AdminService) Delete(id int) error {
+func (s *AdminMovieService) Delete(id int) error {
 	return s.mysql.Delete(id)
 }
