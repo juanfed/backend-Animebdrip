@@ -18,4 +18,5 @@ type Anime struct {
 	Manga     string `json:"manga"`
 	Sipnosis  string `json:"sipnosis"`
 	Photos    string `json:"photos"`
+	Ovas      string `json:"ovas"`
 }
