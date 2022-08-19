@@ -17,4 +17,5 @@ type Anime struct {
 	Password  string `json:"password"`
 	Manga     string `json:"manga"`
 	Sipnosis  string `json:"sipnosis"`
+	Photos    string `json:"photos"`
 }

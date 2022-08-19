@@ -17,11 +17,13 @@ func Routes() {
 	e.GET("/movies/:id", userController.Get)
 
 	// routers for users anime's
-	e.GET("animeBDRip/listAnime/another/:name", userAnimeController.GetAnime)
+	e.GET("animeBDRip/listAnime/:name", userAnimeController.GetAnime)
+	e.GET("animeBDRip/listAnime/anime/:animeId", userAnimeController.GetPhotos)
 
 	// routes for admins movies
 	e.POST("admin/movies", adminController.Set)
 
 	// routers for admins anime's
 	e.POST("admin/anime", adminAnimeController.Set)
+
 }

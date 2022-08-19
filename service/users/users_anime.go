@@ -18,3 +18,7 @@ func UserAnimeMysqlService(mysql *repositories.UserAnimeRepositories) *UserAnime
 func (s *UserAnimeService) GetAnime(name string) (models.Anime, error) {
 	return s.mysql.Get(name)
 }
+
+func (s *UserAnimeService) GetPhotos(id int) (models.Photo, error) {
+	return s.mysql.GetPhotos(id)
+}
